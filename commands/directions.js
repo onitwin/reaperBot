@@ -26,7 +26,7 @@ module.exports = {
       .setTitle("How to find us!")
       .setDescription("Find is on Google Maps at the link below ")
       .setColor("Purple")
-      .setImage("attachment://reaperLogo.jpg")
+      .setThumbnail("attachment://reaperLogo.jpg")
       .addFields(
         {
           name: "what3words location",

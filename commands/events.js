@@ -17,7 +17,7 @@ const file2 = new AttachmentBuilder("assets/cotc.jpeg");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("tournament_pack")
+    .setName("events")
     .setDescription("Clash on the Clyde Tournament Pack 2025"),
   async execute(interaction) {
     const embed = new EmbedBuilder()
