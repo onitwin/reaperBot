@@ -7,6 +7,8 @@ const {
 
 const file = new AttachmentBuilder("assets/Clash on the Clyde Event Pack.pdf");
 
+const file2 = new AttachmentBuilder("assets/cotc.jpeg");
+
 // const bcpLink = new TextDisplayBuilder().setContent(
 //   "[Best Coast Pairings Link] (https://www.bestcoastpairings.com/event/g34QKVwGBW5N)"
 // );
@@ -21,6 +23,7 @@ module.exports = {
     const embed = new EmbedBuilder()
       .setTitle("Clash on the Clyde 2025 Tournament Pack")
       .setDescription("Missions and info for the 2025 event")
+      .setThumbnail("attachment://cotc.jpeg")
       .setColor("Purple")
       .addFields(
         {
@@ -36,7 +39,7 @@ module.exports = {
     //can add multiple embeds to embed object
     interaction.reply({
       embeds: [embed],
-      files: [file],
+      files: [file, file2],
       ephemeral: true,
     });
   },
