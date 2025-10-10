@@ -49,6 +49,7 @@ module.exports = {
       .setColor("Purple");
 
     interaction.reply({
+      // content: "Hello",
       embeds: [embed],
       components: [row1, row2, row3],
       // files: [file],
@@ -56,3 +57,7 @@ module.exports = {
     });
   },
 };
+
+// const row1 = new ActionRowBuilder({
+//   components: [{ label: "This is Rosmary and co" }],
+// }).addComponents(button1);
