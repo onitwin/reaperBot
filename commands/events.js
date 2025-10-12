@@ -26,6 +26,8 @@ module.exports = {
       .setThumbnail("attachment://cotc.jpeg")
       .setColor("Purple")
       .addFields(
+        { name: "Date of Event", value: "25/10/2025" },
+        { name: "Time of Event", value: "08:30 - 20:00" },
         {
           name: "Best Coast Pairings Link",
           value: "https://www.bestcoastpairings.com/event/g34QKVwGBW5N",
