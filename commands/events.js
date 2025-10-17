@@ -26,7 +26,7 @@ const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("events")
-    .setDescription("Clash on the Clyde Tournament Pack 2025"),
+    .setDescription(" Celtic Cup 2025 Event Details"),
   async execute(interaction) {
     const cotc = new EmbedBuilder()
       .setTitle("Clash on the Clyde 2025 Tournament Pack")
