@@ -5,17 +5,8 @@ const {
   ButtonBuilder,
   ButtonStyle,
   ActionRowBuilder,
+  MessageFlags,
 } = require("discord.js");
-
-// const cocpdf = new AttachmentBuilder(
-//   "assets/Clash on the Clyde Event Pack.pdf"
-// );
-
-// const celticCupPack = new AttachmentBuilder(
-//   "assets/Celtic Cup 2025 Event Pack.pdf"
-// );
-
-const coclogo = new AttachmentBuilder("assets/cotc.jpeg");
 
 const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
 
@@ -51,12 +42,6 @@ const buttonRow = new ActionRowBuilder().addComponents(
   r4btn,
   r5btn
 );
-
-// const bcpLink = new TextDisplayBuilder().setContent(
-//   "[Best Coast Pairings Link] (https://www.bestcoastpairings.com/event/g34QKVwGBW5N)"
-// );
-
-// const builtFile = new FileBuilder().setURL("assets/TournamentPack2025.pdf");
 
 const round1 = new EmbedBuilder()
   .setTitle("Mission 1 placeholder")
@@ -109,38 +94,101 @@ const round3 = new EmbedBuilder()
     }
   );
 
+const round4 = new EmbedBuilder()
+  .setTitle("Mission 4 placeholder")
+  .setDescription("Description for mission 4 placeholder")
+  .setColor("Purple")
+  .addFields(
+    { name: "Mission Format", value: "WTC" },
+    { name: "Round", value: "Four" },
+    {
+      name: "Mission",
+      value: "Scorched Earth",
+    },
+    {
+      name: "Deployment Map",
+      value: "Tipping Point",
+    }
+  );
+
+const round5 = new EmbedBuilder()
+  .setTitle("Mission 5 placeholder")
+  .setDescription("Description for mission 5 placeholder")
+  .setColor("Purple")
+  .addFields(
+    { name: "Mission Format", value: "WTC" },
+    { name: "Round", value: "Five" },
+    {
+      name: "Mission",
+      value: "Scorched Earth",
+    },
+    {
+      name: "Deployment Map",
+      value: "Tipping Point",
+    }
+  );
+
+const baseEmbed = new EmbedBuilder()
+  .setTitle("MISSIONS")
+  .setDescription("Missions for Celtic Cup 2025")
+  .setThumbnail("attachment://celticCupLogo.jpg")
+  .setColor("Purple")
+  .addFields({ name: "Select a round", value: "Select round 1-5" });
+
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("missions")
     .setDescription("View Missions"),
   async execute(interaction) {
-    const baseEmbed = new EmbedBuilder()
-      .setTitle("Base Embed")
-      .setDescription("This will all be replaced")
-      .setThumbnail("attachment://celticCupLogo.jpg")
-      .setColor("Purple")
-      .addFields({ name: "Select a round", value: "Select round 1-5" });
-    //can add multiple embeds to embed object
-    interaction.reply({
+    const response = await interaction.reply({
       embeds: [baseEmbed],
       files: [celticCupLogo],
       components: [buttonRow],
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
+      withResponse: true,
     });
+
+    const collectorFilter = (i) => i.user.id === interaction.user.id;
+    try {
+      const confirmation =
+        await response.resource.message.awaitMessageComponent({
+          filter: collectorFilter,
+          time: 60_000,
+        });
+
+      if (confirmation.customId === "round 1") {
+        await confirmation.update({
+          embeds: [round1],
+          components: [],
+        });
+      } else if (confirmation.customId === "round 2") {
+        await confirmation.update({
+          embeds: [round2],
+          components: [],
+        });
+      } else if (confirmation.customId === "round 3") {
+        await confirmation.update({
+          embeds: [round3],
+          components: [],
+        });
+      } else if (confirmation.customId === "round 4") {
+        await confirmation.update({
+          embeds: [round4],
+          components: [],
+        });
+      } else if (confirmation.customId === "round 5") {
+        await confirmation.update({
+          embeds: [round5],
+          components: [],
+        });
+      }
+    } catch {
+      await interaction.editReply({
+        content: "Confirmation not received within 1 minute, cancelling",
+        components: [],
+      });
+    }
   },
 };
 
-// files: [coclogo, celticCupLogo],
-//  .addFields(
-//         { name: "Date of Event", value: "23/11/2025" },
-//         { name: "Time of Event", value: "09:00 AM" },
-//         {
-//           name: "Best Coast Pairings Link",
-//           value: "https://www.bestcoastpairings.com/event/vzvEQEu88Oqf",
-//         },
-//         {
-//           name: "Direct Link to Event Pack",
-//           value:
-//             "https://drive.google.com/file/d/1dI4fW9NnjaGuzliIDVTpSHjNDNlDM_7w/view?usp=drivesdk",
-//         }
-//       );
+// files: [coclogo, celticCupLogo]
