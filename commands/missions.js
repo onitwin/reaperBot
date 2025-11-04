@@ -10,6 +10,16 @@ const {
 
 const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
 
+const terraformImage = new AttachmentBuilder("assets/terraform.jpg");
+
+const linchpinImage = new AttachmentBuilder("assets/linchpin.jpg");
+
+const scorchedEarthImage = new AttachmentBuilder("assets/scorchedEarth.jpg");
+
+const hiddenSuppliesImage = new AttachmentBuilder("assets/hiddenSupplies.jpg");
+
+const takeAndHoldImage = new AttachmentBuilder("assets/takeAndHold.jpg");
+
 const r1btn = new ButtonBuilder()
   .setCustomId("round 1")
   .setLabel("Round 1")
@@ -44,9 +54,10 @@ const buttonRow = new ActionRowBuilder().addComponents(
 );
 
 const round1 = new EmbedBuilder()
-  .setTitle("Mission 1 placeholder")
-  .setDescription("Description for mission 1 placeholder")
+  .setTitle("Mission 1 Celtic Cup")
+  .setDescription("Terraform")
   .setColor("Purple")
+  .setThumbnail("attachment://terraformImage.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "One" },
@@ -64,6 +75,7 @@ const round2 = new EmbedBuilder()
   .setTitle("Mission 2 placeholder")
   .setDescription("Description for mission 2 placeholder")
   .setColor("Purple")
+  .setThumbnail("attachment://linchpinImage.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "Two" },
@@ -81,6 +93,7 @@ const round3 = new EmbedBuilder()
   .setTitle("Mission 3 placeholder")
   .setDescription("Description for mission 3 placeholder")
   .setColor("Purple")
+  .setThumbnail("attachment://scorchedEarthImage.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "Two" },
@@ -98,12 +111,13 @@ const round4 = new EmbedBuilder()
   .setTitle("Mission 4 placeholder")
   .setDescription("Description for mission 4 placeholder")
   .setColor("Purple")
+  .setThumbnail("attachment://hiddenSuppliesImage.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "Four" },
     {
       name: "Mission",
-      value: "Scorched Earth",
+      value: "Hidden Supplies",
     },
     {
       name: "Deployment Map",
@@ -115,12 +129,13 @@ const round5 = new EmbedBuilder()
   .setTitle("Mission 5 placeholder")
   .setDescription("Description for mission 5 placeholder")
   .setColor("Purple")
+  .setThumbnail("attachment://takeAndHoldImage.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "Five" },
     {
       name: "Mission",
-      value: "Scorched Earth",
+      value: "Take And Hold",
     },
     {
       name: "Deployment Map",
@@ -159,26 +174,31 @@ module.exports = {
       if (confirmation.customId === "round 1") {
         await confirmation.update({
           embeds: [round1],
+          files: [terraformImage],
           components: [],
         });
       } else if (confirmation.customId === "round 2") {
         await confirmation.update({
           embeds: [round2],
+          files: [linchpinImage],
           components: [],
         });
       } else if (confirmation.customId === "round 3") {
         await confirmation.update({
           embeds: [round3],
+          files: [scorchedEarthImage],
           components: [],
         });
       } else if (confirmation.customId === "round 4") {
         await confirmation.update({
           embeds: [round4],
+          files: [hiddenSuppliesImage],
           components: [],
         });
       } else if (confirmation.customId === "round 5") {
         await confirmation.update({
           embeds: [round5],
+          files: [takeAndHoldImage],
           components: [],
         });
       }
