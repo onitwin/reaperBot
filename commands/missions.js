@@ -10,15 +10,25 @@ const {
 
 const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
 
-const terraformImage = new AttachmentBuilder("assets/terraform.jpg");
+const terraformImage = new AttachmentBuilder(
+  "https://i.postimg.cc/JzpxTgtb/terraform.jpg"
+);
 
-const linchpinImage = new AttachmentBuilder("assets/linchpin.jpg");
+const linchpinImage = new AttachmentBuilder(
+  "https://i.postimg.cc/d12CLHkT/linchpin.jpg"
+);
 
-const scorchedEarthImage = new AttachmentBuilder("assets/scorchedEarth.jpg");
+const scorchedEarthImage = new AttachmentBuilder(
+  "https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg"
+);
 
-const hiddenSuppliesImage = new AttachmentBuilder("assets/hiddenSupplies.jpg");
+const hiddenSuppliesImage = new AttachmentBuilder(
+  "https://i.postimg.cc/kG7b8QKL/hidden-Supplies.jpg"
+);
 
-const takeAndHoldImage = new AttachmentBuilder("assets/takeAndHold.jpg");
+const takeAndHoldImage = new AttachmentBuilder(
+  "https://i.postimg.cc/g068PkGJ/take-And-Hold.jpg.jpg"
+);
 
 const r1btn = new ButtonBuilder()
   .setCustomId("round 1")
@@ -57,7 +67,7 @@ const round1 = new EmbedBuilder()
   .setTitle("Mission 1 Celtic Cup")
   .setDescription("Terraform")
   .setColor("Purple")
-  .setThumbnail("attachment://terraformImage.jpg")
+  .setThumbnail("attachment://https://i.postimg.cc/JzpxTgtb/terraform.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "One" },
@@ -68,14 +78,18 @@ const round1 = new EmbedBuilder()
     {
       name: "Deployment Map",
       value: "Crucible of Battle",
+    },
+    {
+      name: "Layout Link",
+      value: "https://i.postimg.cc/JzpxTgtb/terraform.jpg",
     }
   );
 
 const round2 = new EmbedBuilder()
-  .setTitle("Mission 2 placeholder")
-  .setDescription("Description for mission 2 placeholder")
+  .setTitle("Mission 2 Celtic Cup 2025")
+  .setDescription("Lynchpin")
   .setColor("Purple")
-  .setThumbnail("attachment://linchpinImage.jpg")
+  .setThumbnail("attachment://https://i.postimg.cc/d12CLHkT/linchpin.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "Two" },
@@ -86,14 +100,18 @@ const round2 = new EmbedBuilder()
     {
       name: "Deployment Map",
       value: "Search and Destroy",
+    },
+    {
+      name: "Layout Link",
+      value: "https://i.postimg.cc/d12CLHkT/linchpin.jpg",
     }
   );
 
 const round3 = new EmbedBuilder()
-  .setTitle("Mission 3 placeholder")
-  .setDescription("Description for mission 3 placeholder")
+  .setTitle("Mission 3 Celtic Cup 2025")
+  .setDescription("Scorched Earth")
   .setColor("Purple")
-  .setThumbnail("attachment://scorchedEarthImage.jpg")
+  .setThumbnail("attachment://https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "Two" },
@@ -104,14 +122,20 @@ const round3 = new EmbedBuilder()
     {
       name: "Deployment Map",
       value: "Tipping Point",
+    },
+    {
+      name: "Layout Link",
+      value: "https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg",
     }
   );
 
 const round4 = new EmbedBuilder()
-  .setTitle("Mission 4 placeholder")
-  .setDescription("Description for mission 4 placeholder")
+  .setTitle("Mission 4 Celtic Cup 2025")
+  .setDescription("Hidden Supplies")
   .setColor("Purple")
-  .setThumbnail("attachment://hiddenSuppliesImage.jpg")
+  .setThumbnail(
+    "attachment://https://i.postimg.cc/kG7b8QKL/hidden-Supplies.jpg"
+  )
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "Four" },
@@ -121,15 +145,19 @@ const round4 = new EmbedBuilder()
     },
     {
       name: "Deployment Map",
-      value: "Tipping Point",
+      value: "Search and Destroy",
+    },
+    {
+      name: "Layout Link",
+      value: "https://i.postimg.cc/kG7b8QKL/hidden-Supplies.jpg",
     }
   );
 
 const round5 = new EmbedBuilder()
-  .setTitle("Mission 5 placeholder")
-  .setDescription("Description for mission 5 placeholder")
+  .setTitle("Mission 5 Celtic Cup 2025")
+  .setDescription("Take and Hold")
   .setColor("Purple")
-  .setThumbnail("attachment://takeAndHoldImage.jpg")
+  .setThumbnail("attachment://https://i.postimg.cc/g068PkGJ/take-And-Hold.jpg")
   .addFields(
     { name: "Mission Format", value: "WTC" },
     { name: "Round", value: "Five" },
@@ -139,7 +167,11 @@ const round5 = new EmbedBuilder()
     },
     {
       name: "Deployment Map",
-      value: "Tipping Point",
+      value: "Crucible of Battle",
+    },
+    {
+      name: "Layout Link",
+      value: "https://i.postimg.cc/g068PkGJ/take-And-Hold.jpg",
     }
   );
 
