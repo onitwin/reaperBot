@@ -1,10 +1,7 @@
 const {
   SlashCommandBuilder,
   EmbedBuilder,
-  ActionRowBuilder,
-  ButtonBuilder,
-  ButtonStyle,
-  Events,
+  MessageFlags,
   AttachmentBuilder,
 } = require("discord.js");
 
@@ -21,6 +18,10 @@ module.exports = {
       .setColor("Purple")
       .setImage("attachment://reaperLogo.jpg");
 
-    interaction.reply({ embeds: [embed], files: [file], ephemeral: true });
+    interaction.reply({
+      embeds: [embed],
+      files: [file],
+      flags: MessageFlags.Ephemeral,
+    });
   },
 };

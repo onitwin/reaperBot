@@ -4,7 +4,7 @@ const {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
-  Events,
+  MessageFlags,
   AttachmentBuilder,
 } = require("discord.js");
 
@@ -44,7 +44,7 @@ module.exports = {
       embeds: [embed],
       components: [button],
       files: [file],
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
   },
 };

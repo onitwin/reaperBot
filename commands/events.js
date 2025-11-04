@@ -2,7 +2,7 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   AttachmentBuilder,
-  TextDisplayBuilder,
+  MessageFlags,
 } = require("discord.js");
 
 const cocpdf = new AttachmentBuilder(
@@ -10,7 +10,7 @@ const cocpdf = new AttachmentBuilder(
 );
 
 const celticCupPack = new AttachmentBuilder(
-  "assets/Celtic Cup 2025 Event Pack.pdf"
+  "assets/Celtic Cup 2025 Event Pack V2.pdf"
 );
 
 const coclogo = new AttachmentBuilder("assets/cotc.jpeg");
@@ -62,14 +62,14 @@ module.exports = {
         {
           name: "Direct Link to Event Pack",
           value:
-            "https://drive.google.com/file/d/1dI4fW9NnjaGuzliIDVTpSHjNDNlDM_7w/view?usp=drivesdk",
+            "https://drive.google.com/file/d/1Vd1xRJTi3YsPxg4p6QQTvX0ragkKc2nT/view",
         }
       );
     //can add multiple embeds to embed object
     interaction.reply({
       embeds: [cotc, ccembed],
       files: [cocpdf, coclogo, celticCupLogo, celticCupPack],
-      ephemeral: true,
+      flags: MessageFlags.Ephemeral,
     });
   },
 };
