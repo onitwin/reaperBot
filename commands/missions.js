@@ -10,26 +10,6 @@ const {
 
 const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
 
-const terraformImage = new AttachmentBuilder(
-  "https://i.postimg.cc/JzpxTgtb/terraform.jpg"
-);
-
-const linchpinImage = new AttachmentBuilder(
-  "https://i.postimg.cc/d12CLHkT/linchpin.jpg"
-);
-
-const scorchedEarthImage = new AttachmentBuilder(
-  "https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg"
-);
-
-const hiddenSuppliesImage = new AttachmentBuilder(
-  "https://i.postimg.cc/kG7b8QKL/hidden-Supplies.jpg"
-);
-
-const takeAndHoldImage = new AttachmentBuilder(
-  "https://i.postimg.cc/g068PkGJ/take-And-Hold.jpg.jpg"
-);
-
 const r1btn = new ButtonBuilder()
   .setCustomId("round 1")
   .setLabel("Round 1")
@@ -67,9 +47,9 @@ const round1 = new EmbedBuilder()
   .setTitle("Mission 1 Celtic Cup")
   .setDescription("Terraform")
   .setColor("Purple")
-  .setThumbnail("attachment://https://i.postimg.cc/JzpxTgtb/terraform.jpg")
+  .setImage("https://i.postimg.cc/JzpxTgtb/terraform.jpg")
   .addFields(
-    { name: "Mission Format", value: "WTC" },
+    { name: "Rules Format", value: "WTC" },
     { name: "Round", value: "One" },
     {
       name: "Mission",
@@ -78,10 +58,6 @@ const round1 = new EmbedBuilder()
     {
       name: "Deployment Map",
       value: "Crucible of Battle",
-    },
-    {
-      name: "Layout Link",
-      value: "https://i.postimg.cc/JzpxTgtb/terraform.jpg",
     }
   );
 
@@ -89,9 +65,9 @@ const round2 = new EmbedBuilder()
   .setTitle("Mission 2 Celtic Cup 2025")
   .setDescription("Lynchpin")
   .setColor("Purple")
-  .setThumbnail("attachment://https://i.postimg.cc/d12CLHkT/linchpin.jpg")
+  .setImage("https://i.postimg.cc/d12CLHkT/linchpin.jpg")
   .addFields(
-    { name: "Mission Format", value: "WTC" },
+    { name: "Rules Format", value: "WTC" },
     { name: "Round", value: "Two" },
     {
       name: "Mission",
@@ -100,10 +76,6 @@ const round2 = new EmbedBuilder()
     {
       name: "Deployment Map",
       value: "Search and Destroy",
-    },
-    {
-      name: "Layout Link",
-      value: "https://i.postimg.cc/d12CLHkT/linchpin.jpg",
     }
   );
 
@@ -111,9 +83,9 @@ const round3 = new EmbedBuilder()
   .setTitle("Mission 3 Celtic Cup 2025")
   .setDescription("Scorched Earth")
   .setColor("Purple")
-  .setThumbnail("attachment://https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg")
+  .setImage("https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg")
   .addFields(
-    { name: "Mission Format", value: "WTC" },
+    { name: "Rules Format", value: "WTC" },
     { name: "Round", value: "Two" },
     {
       name: "Mission",
@@ -122,10 +94,6 @@ const round3 = new EmbedBuilder()
     {
       name: "Deployment Map",
       value: "Tipping Point",
-    },
-    {
-      name: "Layout Link",
-      value: "https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg",
     }
   );
 
@@ -133,11 +101,9 @@ const round4 = new EmbedBuilder()
   .setTitle("Mission 4 Celtic Cup 2025")
   .setDescription("Hidden Supplies")
   .setColor("Purple")
-  .setThumbnail(
-    "attachment://https://i.postimg.cc/kG7b8QKL/hidden-Supplies.jpg"
-  )
+  .setImage("https://i.postimg.cc/kG7b8QKL/hidden-Supplies.jpg")
   .addFields(
-    { name: "Mission Format", value: "WTC" },
+    { name: "Rules Format", value: "WTC" },
     { name: "Round", value: "Four" },
     {
       name: "Mission",
@@ -146,10 +112,6 @@ const round4 = new EmbedBuilder()
     {
       name: "Deployment Map",
       value: "Search and Destroy",
-    },
-    {
-      name: "Layout Link",
-      value: "https://i.postimg.cc/kG7b8QKL/hidden-Supplies.jpg",
     }
   );
 
@@ -157,9 +119,9 @@ const round5 = new EmbedBuilder()
   .setTitle("Mission 5 Celtic Cup 2025")
   .setDescription("Take and Hold")
   .setColor("Purple")
-  .setThumbnail("attachment://https://i.postimg.cc/g068PkGJ/take-And-Hold.jpg")
+  .setImage("https://i.postimg.cc/g068PkGJ/take-And-Hold.jpg")
   .addFields(
-    { name: "Mission Format", value: "WTC" },
+    { name: "Rules Format", value: "WTC" },
     { name: "Round", value: "Five" },
     {
       name: "Mission",
@@ -168,17 +130,13 @@ const round5 = new EmbedBuilder()
     {
       name: "Deployment Map",
       value: "Crucible of Battle",
-    },
-    {
-      name: "Layout Link",
-      value: "https://i.postimg.cc/g068PkGJ/take-And-Hold.jpg",
     }
   );
 
 const baseEmbed = new EmbedBuilder()
   .setTitle("MISSIONS")
   .setDescription("Missions for Celtic Cup 2025")
-  .setThumbnail("attachment://celticCupLogo.jpg")
+  .setImage("attachment://celticCupLogo.jpg")
   .setColor("Purple")
   .addFields({ name: "Select a round", value: "Select round 1-5" });
 
@@ -206,31 +164,31 @@ module.exports = {
       if (confirmation.customId === "round 1") {
         await confirmation.update({
           embeds: [round1],
-          files: [terraformImage],
+          files: [],
           components: [],
         });
       } else if (confirmation.customId === "round 2") {
         await confirmation.update({
           embeds: [round2],
-          files: [linchpinImage],
+          files: [],
           components: [],
         });
       } else if (confirmation.customId === "round 3") {
         await confirmation.update({
           embeds: [round3],
-          files: [scorchedEarthImage],
+          files: [],
           components: [],
         });
       } else if (confirmation.customId === "round 4") {
         await confirmation.update({
           embeds: [round4],
-          files: [hiddenSuppliesImage],
+          files: [],
           components: [],
         });
       } else if (confirmation.customId === "round 5") {
         await confirmation.update({
           embeds: [round5],
-          files: [takeAndHoldImage],
+          files: [],
           components: [],
         });
       }
