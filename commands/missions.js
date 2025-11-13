@@ -86,7 +86,7 @@ const round3 = new EmbedBuilder()
   .setImage("https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg")
   .addFields(
     { name: "Rules Format", value: "WTC" },
-    { name: "Round", value: "Two" },
+    { name: "Round", value: "Three" },
     {
       name: "Mission",
       value: "Scorched Earth",
