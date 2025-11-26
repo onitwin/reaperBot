@@ -2,20 +2,103 @@ const {
   SlashCommandBuilder,
   EmbedBuilder,
   AttachmentBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  ActionRowBuilder,
   MessageFlags,
 } = require("discord.js");
 
-const cocpdf = new AttachmentBuilder(
-  "assets/Clash on the Clyde Event Pack.pdf"
-);
+// const cocpdf = new AttachmentBuilder(
+//   "assets/Clash on the Clyde Event Pack.pdf"
+// );
 
 const celticCupPack = new AttachmentBuilder(
   "assets/Celtic Cup 2025 Event Pack V2.pdf"
 );
 
-const coclogo = new AttachmentBuilder("assets/cotc.jpeg");
+const highlanderPack = new AttachmentBuilder(
+  "assets/Highlander Painting Awards 2025.pdf"
+);
 
-const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
+const glasvegasPack = new AttachmentBuilder("assets/TournamentPack2025.pdf");
+const reaperLogo = new AttachmentBuilder("assets/reaperLogo.jpg");
+
+const baseEmbed = new EmbedBuilder()
+  .setTitle("EVENTS")
+  .setDescription("List and details for Reaper Wargaming Events")
+  .setImage("attachment://reaperLogo.jpg")
+  .setColor("Purple")
+  .addFields({ name: "Event List", value: "Select an event for more details" });
+
+const ccembed = new EmbedBuilder()
+  .setTitle("Celtic Cup 2025 Tournament Pack")
+  .setDescription("Missions and info for the 2025 event")
+  .setThumbnail("attachment://celticCupLogo.jpg")
+  .setColor("Purple")
+  .addFields(
+    { name: "Date of Event", value: "23/11/2025" },
+    { name: "Time of Event", value: "09:00 AM" },
+    {
+      name: "Best Coast Pairings Link",
+      value: "https://www.bestcoastpairings.com/event/vzvEQEu88Oqf",
+    },
+    {
+      name: "Direct Link to Event Pack",
+      value:
+        "https://drive.google.com/file/d/1Vd1xRJTi3YsPxg4p6QQTvX0ragkKc2nT/view",
+    }
+  );
+
+const highlanderEmbed = new EmbedBuilder()
+  .setTitle("Highlander Painting Competition 2025")
+  .setDescription("Info for the 2025 event")
+  .setThumbnail("attachment://reaperLogo.jpg")
+  .setColor("Purple")
+  .addFields(
+    { name: "Date of Event", value: "23/11/2025" },
+    { name: "Time of Event", value: "09:00 AM" },
+    {
+      name: "Direct Link to Event Pack",
+      value:
+        "https://drive.google.com/file/d/1nW2_hDSw8hYzPAAFGEiP6JMsdB2m3sLg/view",
+    }
+  );
+
+const glasvegasEmbed = new EmbedBuilder()
+  .setTitle("Glasvegas 2025")
+  .setDescription("Info for the 2025 summer series")
+  .setThumbnail("attachment://reaperLogo.jpg")
+  .setColor("Purple")
+  .addFields(
+    { name: "Date of Event", value: "Variable" },
+    { name: "Time of Event", value: "09:00 AM" },
+    {
+      name: "Direct Link to Event Pack",
+      value:
+        "https://drive.google.com/file/d/1zNu7eVBsqdKr3FCjDikXup32M84Kq5lb/view",
+    }
+  );
+
+const evnt1btn = new ButtonBuilder()
+  .setCustomId("Celtic Cup")
+  .setLabel("Celtic Cup 2025")
+  .setStyle(ButtonStyle.Primary);
+
+const evnt2btn = new ButtonBuilder()
+  .setCustomId("Highlander Painting")
+  .setLabel("Highlander Painting Awards 2025")
+  .setStyle(ButtonStyle.Primary);
+
+const evnt3btn = new ButtonBuilder()
+  .setCustomId("Glasvegas")
+  .setLabel("Glasvegas Summer Series 2025")
+  .setStyle(ButtonStyle.Primary);
+
+const buttonRow = new ActionRowBuilder().addComponents(
+  evnt1btn,
+  evnt2btn,
+  evnt3btn
+);
 
 // const bcpLink = new TextDisplayBuilder().setContent(
 //   "[Best Coast Pairings Link] (https://www.bestcoastpairings.com/event/g34QKVwGBW5N)"
@@ -26,64 +109,48 @@ const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("events")
-    .setDescription(" Celtic Cup 2025 Event Details"),
+    .setDescription(" Events From Reaper in 2025"),
   async execute(interaction) {
-    const cotc = new EmbedBuilder()
-      .setTitle("Clash on the Clyde 2025 Tournament Pack")
-      .setDescription("Missions and info for the 2025 event")
-      .setThumbnail("attachment://cotc.jpeg")
-      .setColor("Purple")
-      .addFields(
-        { name: "Date of Event", value: "25/10/2025" },
-        { name: "Time of Event", value: "08:30 - 20:00" },
-        {
-          name: "Best Coast Pairings Link",
-          value: "https://www.bestcoastpairings.com/event/g34QKVwGBW5N",
-        },
-        {
-          name: "Eventbright Link",
-          value:
-            "https://www.eventbrite.co.uk/e/clash-on-the-clyde-warhammer-40k-tournament-tickets-1383714771129",
-        }
-      );
-
-    const ccembed = new EmbedBuilder()
-      .setTitle("Celtic Cup 2025 Tournament Pack")
-      .setDescription("Missions and info for the 2025 event")
-      .setThumbnail("attachment://celticCupLogo.jpg")
-      .setColor("Purple")
-      .addFields(
-        { name: "Date of Event", value: "23/11/2025" },
-        { name: "Time of Event", value: "09:00 AM" },
-        {
-          name: "Best Coast Pairings Link",
-          value: "https://www.bestcoastpairings.com/event/vzvEQEu88Oqf",
-        },
-        {
-          name: "Direct Link to Event Pack",
-          value:
-            "https://drive.google.com/file/d/1Vd1xRJTi3YsPxg4p6QQTvX0ragkKc2nT/view",
-        }
-      );
-    //can add multiple embeds to embed object
-    interaction.reply({
-      embeds: [cotc, ccembed],
-      files: [cocpdf, coclogo, celticCupLogo, celticCupPack],
+    const response = await interaction.reply({
+      embeds: [baseEmbed],
+      files: [reaperLogo],
       flags: MessageFlags.Ephemeral,
+      components: [buttonRow],
+      withResponse: true,
     });
+
+    const collectorFilter = (i) => i.user.id === interaction.user.id;
+    try {
+      const confirmation =
+        await response.resource.message.awaitMessageComponent({
+          filter: collectorFilter,
+          time: 60_000,
+        });
+
+      if (confirmation.customId === "Celtic Cup") {
+        await confirmation.update({
+          embeds: [ccembed],
+          files: [celticCupPack],
+          components: [],
+        });
+      } else if (confirmation.customId === "Highlander Painting") {
+        await confirmation.update({
+          embeds: [highlanderEmbed],
+          files: [highlanderPack],
+          components: [],
+        });
+      } else if (confirmation.customId === "Glasvegas") {
+        await confirmation.update({
+          embeds: [glasvegasEmbed],
+          files: [glasvegasPack],
+          components: [],
+        });
+      }
+    } catch {
+      await interaction.editReply({
+        content: "Confirmation not received within 1 minute, cancelling",
+        components: [],
+      });
+    }
   },
 };
-
-//  .addFields(
-//         { name: "Date of Event", value: "23/11/2025" },
-//         { name: "Time of Event", value: "09:00 AM" },
-//         {
-//           name: "Best Coast Pairings Link",
-//           value: "https://www.bestcoastpairings.com/event/vzvEQEu88Oqf",
-//         },
-//         {
-//           name: "Direct Link to Event Pack",
-//           value:
-//             "https://drive.google.com/file/d/1dI4fW9NnjaGuzliIDVTpSHjNDNlDM_7w/view?usp=drivesdk",
-//         }
-//       );
