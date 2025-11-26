@@ -8,10 +8,6 @@ const {
   MessageFlags,
 } = require("discord.js");
 
-// const cocpdf = new AttachmentBuilder(
-//   "assets/Clash on the Clyde Event Pack.pdf"
-// );
-
 const celticCupPack = new AttachmentBuilder(
   "assets/Celtic Cup 2025 Event Pack V2.pdf"
 );
@@ -99,12 +95,6 @@ const buttonRow = new ActionRowBuilder().addComponents(
   evnt2btn,
   evnt3btn
 );
-
-// const bcpLink = new TextDisplayBuilder().setContent(
-//   "[Best Coast Pairings Link] (https://www.bestcoastpairings.com/event/g34QKVwGBW5N)"
-// );
-
-// const builtFile = new FileBuilder().setURL("assets/TournamentPack2025.pdf");
 
 module.exports = {
   data: new SlashCommandBuilder()
