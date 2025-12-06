@@ -1,3 +1,5 @@
+const response = require("../assets/missions.json");
+
 const {
   SlashCommandBuilder,
   EmbedBuilder,
@@ -8,137 +10,55 @@ const {
   MessageFlags,
 } = require("discord.js");
 
+const eventDetails = response[0];
+const roundsDetails = response[1].rounds;
+const missionLength = roundsDetails.length;
+
+const buttonCollection = roundsDetails.map((round, i) => {
+  return new ButtonBuilder()
+    .setCustomId(`round ${i + 1}`)
+    .setLabel(` Round ${round.round}`)
+    .setStyle(ButtonStyle.Primary);
+});
+
+const missionCollection = roundsDetails.map((round, i) => {
+  return new EmbedBuilder()
+    .setTitle(round.title)
+    .setDescription(round.missionDescription)
+    .setColor("Purple")
+    .setImage(round.image)
+    .addFields({
+      name: "Deployment Map",
+      value: round.fields["Deployment Map"],
+    });
+});
+
 const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
 
-const r1btn = new ButtonBuilder()
-  .setCustomId("round 1")
-  .setLabel("Round 1")
-  .setStyle(ButtonStyle.Primary);
+//example button in isolation if needed
+// const r1btn = new ButtonBuilder()
+//   .setCustomId("round 1")
+//   .setLabel("Round 1")
+//   .setStyle(ButtonStyle.Primary);
 
-const r2btn = new ButtonBuilder()
-  .setCustomId("round 2")
-  .setLabel("Round 2")
-  .setStyle(ButtonStyle.Primary);
-
-const r3btn = new ButtonBuilder()
-  .setCustomId("round 3")
-  .setLabel("Round 3")
-  .setStyle(ButtonStyle.Primary);
-
-const r4btn = new ButtonBuilder()
-  .setCustomId("round 4")
-  .setLabel("Round 4")
-  .setStyle(ButtonStyle.Primary);
-
-const r5btn = new ButtonBuilder()
-  .setCustomId("round 5")
-  .setLabel("Round 5")
-  .setStyle(ButtonStyle.Primary);
-
-const buttonRow = new ActionRowBuilder().addComponents(
-  r1btn,
-  r2btn,
-  r3btn,
-  r4btn,
-  r5btn
-);
-
-const round1 = new EmbedBuilder()
-  .setTitle("Mission 1 Celtic Cup")
-  .setDescription("Terraform")
-  .setColor("Purple")
-  .setImage("https://i.postimg.cc/JzpxTgtb/terraform.jpg")
-  .addFields(
-    { name: "Rules Format", value: "WTC" },
-    { name: "Round", value: "One" },
-    {
-      name: "Mission",
-      value: "Terraform",
-    },
-    {
-      name: "Deployment Map",
-      value: "Crucible of Battle",
-    }
-  );
-
-const round2 = new EmbedBuilder()
-  .setTitle("Mission 2 Celtic Cup 2025")
-  .setDescription("Lynchpin")
-  .setColor("Purple")
-  .setImage("https://i.postimg.cc/d12CLHkT/linchpin.jpg")
-  .addFields(
-    { name: "Rules Format", value: "WTC" },
-    { name: "Round", value: "Two" },
-    {
-      name: "Mission",
-      value: "Lynchpin",
-    },
-    {
-      name: "Deployment Map",
-      value: "Search and Destroy",
-    }
-  );
-
-const round3 = new EmbedBuilder()
-  .setTitle("Mission 3 Celtic Cup 2025")
-  .setDescription("Scorched Earth")
-  .setColor("Purple")
-  .setImage("https://i.postimg.cc/4dkt4kds/scorched-Earth.jpg")
-  .addFields(
-    { name: "Rules Format", value: "WTC" },
-    { name: "Round", value: "Three" },
-    {
-      name: "Mission",
-      value: "Scorched Earth",
-    },
-    {
-      name: "Deployment Map",
-      value: "Tipping Point",
-    }
-  );
-
-const round4 = new EmbedBuilder()
-  .setTitle("Mission 4 Celtic Cup 2025")
-  .setDescription("Hidden Supplies")
-  .setColor("Purple")
-  .setImage("https://i.postimg.cc/kG7b8QKL/hidden-Supplies.jpg")
-  .addFields(
-    { name: "Rules Format", value: "WTC" },
-    { name: "Round", value: "Four" },
-    {
-      name: "Mission",
-      value: "Hidden Supplies",
-    },
-    {
-      name: "Deployment Map",
-      value: "Search and Destroy",
-    }
-  );
-
-const round5 = new EmbedBuilder()
-  .setTitle("Mission 5 Celtic Cup 2025")
-  .setDescription("Take and Hold")
-  .setColor("Purple")
-  .setImage("https://i.postimg.cc/g068PkGJ/take-And-Hold.jpg")
-  .addFields(
-    { name: "Rules Format", value: "WTC" },
-    { name: "Round", value: "Five" },
-    {
-      name: "Mission",
-      value: "Take And Hold",
-    },
-    {
-      name: "Deployment Map",
-      value: "Crucible of Battle",
-    }
-  );
+const buttonRow = new ActionRowBuilder().addComponents(...buttonCollection);
 
 const baseEmbed = new EmbedBuilder()
-  .setTitle("MISSIONS")
-  .setDescription("Missions for Celtic Cup 2025")
-  .setImage("attachment://celticCupLogo.jpg")
+  .setTitle(eventDetails.eventDetails.eventTitle)
+  .setDescription("MISSIONS")
+  .setImage(eventDetails.eventDetails.image)
   .setColor("Purple")
-  .addFields({ name: "Select a round", value: "Select round 1-5" });
+  .addFields(
+    { name: "Rules Format", value: eventDetails.eventDetails.rulesFormat },
+    {
+      name: "Rules Format Link",
+      value: eventDetails.eventDetails.rulesFormatLink,
+    },
+    {
+      name: "Select a round",
+      value: `Select round 1-${missionLength}`,
+    }
+  );
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -163,31 +83,31 @@ module.exports = {
 
       if (confirmation.customId === "round 1") {
         await confirmation.update({
-          embeds: [round1],
+          embeds: [missionCollection[0]],
           files: [],
           components: [],
         });
       } else if (confirmation.customId === "round 2") {
         await confirmation.update({
-          embeds: [round2],
+          embeds: [missionCollection[1]],
           files: [],
           components: [],
         });
       } else if (confirmation.customId === "round 3") {
         await confirmation.update({
-          embeds: [round3],
+          embeds: [missionCollection[2]],
           files: [],
           components: [],
         });
       } else if (confirmation.customId === "round 4") {
         await confirmation.update({
-          embeds: [round4],
+          embeds: [missionCollection[3]],
           files: [],
           components: [],
         });
       } else if (confirmation.customId === "round 5") {
         await confirmation.update({
-          embeds: [round5],
+          embeds: [missionCollection[4]],
           files: [],
           components: [],
         });
