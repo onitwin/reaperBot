@@ -61,45 +61,46 @@ const highlanderEmbed = new EmbedBuilder()
   );
 
 const glasvegasEmbed = new EmbedBuilder()
-  .setTitle("Glasvegas 2025")
-  .setDescription("Info for the 2025 summer series")
+  .setTitle("Glasvegas 2026")
+  .setDescription("Info for the January 2026 Event")
   .setThumbnail("attachment://reaperLogo.jpg")
   .setColor("Purple")
   .addFields(
-    { name: "Date of Event", value: "Variable" },
+    { name: "Date of Event", value: "17/01/2026" },
     { name: "Time of Event", value: "09:00 AM" },
+    { name: "Number of Rounds", value: "Three" },
     {
-      name: "Direct Link to Event Pack",
+      name: "Best Coast Pairings Link",
+      value: "https://web.bestcoastpairings.com/event/qEDlmK34LsVf",
+    },
+    {
+      name: "Purchase Tickets",
       value:
-        "https://drive.google.com/file/d/1zNu7eVBsqdKr3FCjDikXup32M84Kq5lb/view",
+        "https://reaper-wargaming-glasgow.sumupstore.com/product/glasvegas-open-winter-rtt-january-17th",
     }
   );
 
 const evnt1btn = new ButtonBuilder()
-  .setCustomId("Celtic Cup")
-  .setLabel("Celtic Cup 2025")
-  .setStyle(ButtonStyle.Primary);
-
-const evnt2btn = new ButtonBuilder()
-  .setCustomId("Highlander Painting")
-  .setLabel("Highlander Painting Awards 2025")
-  .setStyle(ButtonStyle.Primary);
-
-const evnt3btn = new ButtonBuilder()
   .setCustomId("Glasvegas")
-  .setLabel("Glasvegas Summer Series 2025")
+  .setLabel("GlasVegas Open January 2026")
   .setStyle(ButtonStyle.Primary);
 
-const buttonRow = new ActionRowBuilder().addComponents(
-  evnt1btn,
-  evnt2btn,
-  evnt3btn
-);
+// const evnt2btn = new ButtonBuilder()
+//   .setCustomId("Highlander Painting")
+//   .setLabel("Highlander Painting Awards 2025")
+//   .setStyle(ButtonStyle.Primary);
+
+// const evnt3btn = new ButtonBuilder()
+//   .setCustomId("Glasvegas")
+//   .setLabel("Glasvegas Summer Series 2025")
+//   .setStyle(ButtonStyle.Primary);
+
+const buttonRow = new ActionRowBuilder().addComponents(evnt1btn);
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("events")
-    .setDescription(" Events From Reaper in 2025"),
+    .setDescription(" Events From Reaper in 2026"),
   async execute(interaction) {
     const response = await interaction.reply({
       embeds: [baseEmbed],
@@ -132,7 +133,7 @@ module.exports = {
       } else if (confirmation.customId === "Glasvegas") {
         await confirmation.update({
           embeds: [glasvegasEmbed],
-          files: [glasvegasPack],
+          files: [],
           components: [],
         });
       }
