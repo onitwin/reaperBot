@@ -69,6 +69,7 @@ const glasvegasEmbed = new EmbedBuilder()
     { name: "Date of Event", value: "17/01/2026" },
     { name: "Time of Event", value: "09:00 AM" },
     { name: "Number of Rounds", value: "Three" },
+    { name: "List Submission Cutoff", value: "22:00 on 14/01/26" },
     {
       name: "Direct Link to Event Pack",
       value:

@@ -33,7 +33,7 @@ const missionCollection = roundsDetails.map((round, i) => {
     });
 });
 
-const celticCupLogo = new AttachmentBuilder("assets/celticCupLogo.jpg");
+const reaperLogo = new AttachmentBuilder("assets/reaperLogo.jpg");
 
 //example button in isolation if needed
 // const r1btn = new ButtonBuilder()
@@ -67,7 +67,7 @@ module.exports = {
   async execute(interaction) {
     const response = await interaction.reply({
       embeds: [baseEmbed],
-      files: [celticCupLogo],
+      files: [reaperLogo],
       components: [buttonRow],
       flags: MessageFlags.Ephemeral,
       withResponse: true,
