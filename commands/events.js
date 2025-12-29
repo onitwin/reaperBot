@@ -27,12 +27,12 @@ const baseEmbed = new EmbedBuilder()
   .addFields({ name: "Event List", value: "Select an event for more details" });
 
 const ccembed = new EmbedBuilder()
-  .setTitle("Celtic Cup 2025 Tournament Pack")
-  .setDescription("Missions and info for the 2025 event")
-  .setThumbnail("attachment://celticCupLogo.jpg")
+  .setTitle("Glasvegas Open Winter RTT")
+  .setDescription("Missions and info for the 2026 event")
+  .setThumbnail("attachment://reaperLogo.jpg")
   .setColor("Purple")
   .addFields(
-    { name: "Date of Event", value: "23/11/2025" },
+    { name: "Date of Event", value: "17/01/2026" },
     { name: "Time of Event", value: "09:00 AM" },
     {
       name: "Best Coast Pairings Link",
@@ -69,6 +69,11 @@ const glasvegasEmbed = new EmbedBuilder()
     { name: "Date of Event", value: "17/01/2026" },
     { name: "Time of Event", value: "09:00 AM" },
     { name: "Number of Rounds", value: "Three" },
+    {
+      name: "Direct Link to Event Pack",
+      value:
+        "https://drive.google.com/file/d/1rdL1t-3SMvlLVdrTaXreOB_U45jZ8FYB/view?usp=drivesdk",
+    },
     {
       name: "Best Coast Pairings Link",
       value: "https://web.bestcoastpairings.com/event/qEDlmK34LsVf",
