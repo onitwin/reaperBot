@@ -9,15 +9,17 @@ const {
 } = require("discord.js");
 
 const celticCupPack = new AttachmentBuilder(
-  "assets/Celtic Cup 2025 Event Pack V2.pdf"
+  "assets/Celtic Cup 2025 Event Pack V2.pdf",
 );
 
 const highlanderPack = new AttachmentBuilder(
-  "assets/Highlander Painting Awards 2025.pdf"
+  "assets/Highlander Painting Awards 2025.pdf",
 );
 
 const glasvegasPack = new AttachmentBuilder("assets/TournamentPack2025.pdf");
 const reaperLogo = new AttachmentBuilder("assets/reaperLogo.jpg");
+const saturdayImage = new AttachmentBuilder("assets/saturdayEvent.jpg");
+const sundayImage = new AttachmentBuilder("assets/sundayEvent.jpg");
 
 const baseEmbed = new EmbedBuilder()
   .setTitle("EVENTS")
@@ -26,23 +28,34 @@ const baseEmbed = new EmbedBuilder()
   .setColor("Purple")
   .addFields({ name: "Event List", value: "Select an event for more details" });
 
-const ccembed = new EmbedBuilder()
-  .setTitle("Glasvegas Open Winter RTT")
+const eoeembed = new EmbedBuilder()
+  .setTitle("End Of Edition RTT 1")
   .setDescription("Missions and info for the 2026 event")
-  .setThumbnail("attachment://reaperLogo.jpg")
+  .setImage("attachment://saturdayEvent.jpg")
   .setColor("Purple")
   .addFields(
-    { name: "Date of Event", value: "17/01/2026" },
+    { name: "Date of Event", value: "06/06/2026" },
     { name: "Time of Event", value: "09:00 AM" },
     {
       name: "Best Coast Pairings Link",
-      value: "https://www.bestcoastpairings.com/event/vzvEQEu88Oqf",
-    },
-    {
-      name: "Direct Link to Event Pack",
       value:
-        "https://drive.google.com/file/d/1Vd1xRJTi3YsPxg4p6QQTvX0ragkKc2nT/view",
-    }
+        "https://web.bestcoastpairings.com/event/Hwocaniq5ofN?active_tab=overview",
+    },
+  );
+
+const eoe2embed = new EmbedBuilder()
+  .setTitle("End Of Edition RTT 2")
+  .setDescription("Missions and info for the 2026 event")
+  .setImage("attachment://sundayEvent.jpg")
+  .setColor("Purple")
+  .addFields(
+    { name: "Date of Event", value: "07/06/2026" },
+    { name: "Time of Event", value: "09:00 AM" },
+    {
+      name: "Best Coast Pairings Link",
+      value:
+        "https://web.bestcoastpairings.com/event/I2cMuqrc310i?active_tab=overview",
+    },
   );
 
 const highlanderEmbed = new EmbedBuilder()
@@ -57,7 +70,7 @@ const highlanderEmbed = new EmbedBuilder()
       name: "Direct Link to Event Pack",
       value:
         "https://drive.google.com/file/d/1nW2_hDSw8hYzPAAFGEiP6JMsdB2m3sLg/view",
-    }
+    },
   );
 
 const glasvegasEmbed = new EmbedBuilder()
@@ -83,25 +96,25 @@ const glasvegasEmbed = new EmbedBuilder()
       name: "Purchase Tickets",
       value:
         "https://reaper-wargaming-glasgow.sumupstore.com/product/glasvegas-open-winter-rtt-january-17th",
-    }
+    },
   );
 
 const evnt1btn = new ButtonBuilder()
-  .setCustomId("Glasvegas")
-  .setLabel("GlasVegas Open January 2026")
+  .setCustomId("saturday")
+  .setLabel("End Of Edition RTT 1")
   .setStyle(ButtonStyle.Primary);
 
-// const evnt2btn = new ButtonBuilder()
-//   .setCustomId("Highlander Painting")
-//   .setLabel("Highlander Painting Awards 2025")
-//   .setStyle(ButtonStyle.Primary);
+const evnt2btn = new ButtonBuilder()
+  .setCustomId("sunday")
+  .setLabel("End Of Edition RTT 2")
+  .setStyle(ButtonStyle.Primary);
 
 // const evnt3btn = new ButtonBuilder()
 //   .setCustomId("Glasvegas")
 //   .setLabel("Glasvegas Summer Series 2025")
 //   .setStyle(ButtonStyle.Primary);
 
-const buttonRow = new ActionRowBuilder().addComponents(evnt1btn);
+const buttonRow = new ActionRowBuilder().addComponents(evnt1btn, evnt2btn);
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -124,16 +137,16 @@ module.exports = {
           time: 60_000,
         });
 
-      if (confirmation.customId === "Celtic Cup") {
+      if (confirmation.customId === "saturday") {
         await confirmation.update({
-          embeds: [ccembed],
-          files: [celticCupPack],
+          embeds: [eoeembed],
+          files: [saturdayImage],
           components: [],
         });
-      } else if (confirmation.customId === "Highlander Painting") {
+      } else if (confirmation.customId === "sunday") {
         await confirmation.update({
-          embeds: [highlanderEmbed],
-          files: [highlanderPack],
+          embeds: [eoe2embed],
+          files: [sundayImage],
           components: [],
         });
       } else if (confirmation.customId === "Glasvegas") {
