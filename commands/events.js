@@ -31,7 +31,6 @@ const baseEmbed = new EmbedBuilder()
 const eoeembed = new EmbedBuilder()
   .setTitle("End Of Edition RTT 1")
   .setDescription("Missions and info for the 2026 event")
-  .setImage("attachment://saturdayEvent.jpg")
   .setColor("Purple")
   .addFields(
     { name: "Date of Event", value: "06/06/2026" },
@@ -46,7 +45,6 @@ const eoeembed = new EmbedBuilder()
 const eoe2embed = new EmbedBuilder()
   .setTitle("End Of Edition RTT 2")
   .setDescription("Missions and info for the 2026 event")
-  .setImage("attachment://sundayEvent.jpg")
   .setColor("Purple")
   .addFields(
     { name: "Date of Event", value: "07/06/2026" },
