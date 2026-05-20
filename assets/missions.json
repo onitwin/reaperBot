@@ -1,7 +1,7 @@
 [
   {
     "eventDetails": {
-      "eventTitle": "Glasvegas Open Winter RTT",
+      "eventTitle": "Big Weekender - Day 1",
       "rulesFormat": "WTC",
       "rulesFormatLink": "https://worldteamchampionship.com/wtc-rules/",
       "numberOfRounds": "3",
@@ -11,7 +11,7 @@
   {
     "rounds": [
       {
-        "title": "Round 1 Winter RTT",
+        "title": "Day 1 - Round 1",
         "round": "One",
         "missionDescription": "Supply Drop",
         "image": "https://i.postimg.cc/MZmkrJYw/Supply_Drop.jpg",
@@ -20,7 +20,7 @@
         }
       },
       {
-        "title": "Round 2 Winter RTT",
+        "title": "Day 1 - Round 2",
         "round": "Two",
         "missionDescription": "Scorched Earth",
         "image": "https://i.postimg.cc/FFVtnXxm/Scorched_Earth.jpg",
@@ -29,7 +29,7 @@
         }
       },
       {
-        "title": "Round 3 Winter RTT",
+        "title": "Day 1 - Round 3",
         "round": "Three",
         "missionDescription": "Take And Hold",
         "image": "https://i.postimg.cc/MZmkrJYq/Take_And_Hold.jpg",
