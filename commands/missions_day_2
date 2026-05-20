@@ -1,4 +1,4 @@
-const response = require("../assets/missions.json");
+const response = require("../assets/missionsDay2.json");
 
 const {
   SlashCommandBuilder,
@@ -57,12 +57,12 @@ const baseEmbed = new EmbedBuilder()
     {
       name: "Select a round",
       value: `Select round 1-${missionLength}`,
-    }
+    },
   );
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("missions")
+    .setName("day2")
     .setDescription("View Missions"),
   async execute(interaction) {
     const response = await interaction.reply({
