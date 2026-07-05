@@ -1,0 +1,133 @@
+const response = require("../assets/missions.json");
+
+const {
+  SlashCommandBuilder,
+  EmbedBuilder,
+  AttachmentBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  ActionRowBuilder,
+  MessageFlags,
+} = require("discord.js");
+
+const eventDetails = response[0];
+const dispositionDetails = response[1].dispositions;
+const missionLength = roundsDetails.length;
+
+/*rewrite code for new missiom structure
+- one action row per button
+- one button per mission type
+- each button response returns all the round/map combinatuons for the tournament
+*/
+
+const buttonCollection = dispositionsDetails.map((disposition) => {
+  return new ButtonBuilder()
+    .setCustomId(`${disposition.title}`)
+    .setLabel(`${disposition.title}`)
+    .setStyle(ButtonStyle.Primary);
+});
+
+const actionRowCollection = buttonCollection.map((button) => {
+  return new ActionRowBuilder().addComponents(button);
+});
+
+const dispositionCollection = roundsDetails.map((round, i) => {
+  return new EmbedBuilder()
+    .setTitle(round.title)
+    .setDescription(round.missionDescription)
+    .setColor("Purple")
+    .setImage(round.image)
+    .addFields({
+      name: "Deployment Map",
+      value: round.fields["Deployment Map"],
+    });
+});
+
+const reaperLogo = new AttachmentBuilder("assets/reaperLogo.jpg");
+
+//example button in isolation if needed
+// const r1btn = new ButtonBuilder()
+//   .setCustomId("round 1")
+//   .setLabel("Round 1")
+//   .setStyle(ButtonStyle.Primary);
+
+const buttonRow = new ActionRowBuilder().addComponents(...buttonCollection);
+
+const baseEmbed = new EmbedBuilder()
+  .setTitle(eventDetails.eventDetails.eventTitle)
+  .setDescription("Disposition and Layout Pairings")
+  .setColor("Purple")
+  .addFields(
+    { name: "Rules Format", value: eventDetails.eventDetails.rulesFormat },
+    {
+      name: "Rules Format Link",
+      value: eventDetails.eventDetails.rulesFormatLink,
+    },
+    {
+      name: "Select Your Disposition",
+      value: `Select your Disposition to view layouts for each rounds pairings`,
+    },
+  );
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName("missions")
+    .setDescription("View Disposition/Layout pairings"),
+  async execute(interaction) {
+    const response = await interaction.reply({
+      embeds: [baseEmbed],
+      files: [reaperLogo],
+      components: [...actionRowCollection],
+      flags: MessageFlags.Ephemeral,
+      withResponse: true,
+    });
+
+    const collectorFilter = (i) => i.user.id === interaction.user.id;
+    try {
+      const confirmation =
+        await response.resource.message.awaitMessageComponent({
+          filter: collectorFilter,
+          time: 60_000,
+        });
+
+      if (confirmation.customId === "Disruption") {
+        await confirmation.update({
+          embeds: [missionCollection[0]],
+          files: [],
+          components: [],
+        });
+      } else if (confirmation.customId === "Priority Assets") {
+        await confirmation.update({
+          embeds: [missionCollection[1]],
+          files: [],
+          components: [],
+        });
+      } else if (confirmation.customId === "Purge The Foe") {
+        await confirmation.update({
+          embeds: [missionCollection[2]],
+          files: [],
+          components: [],
+        });
+      } else if (confirmation.customId === "Take And Hold") {
+        await confirmation.update({
+          embeds: [missionCollection[3]],
+          files: [],
+          components: [],
+        });
+      } else if (confirmation.customId === "Reconnaissance") {
+        await confirmation.update({
+          embeds: [missionCollection[4]],
+          files: [],
+          components: [],
+        });
+      }
+    } catch {
+      await interaction.editReply({
+        content: "Confirmation not received within 1 minute, cancelling",
+        components: [],
+      });
+    }
+  },
+};
+
+// files: [coclogo, celticCupLogo]

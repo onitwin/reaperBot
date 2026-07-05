@@ -1,40 +1,168 @@
 [
   {
     "eventDetails": {
-      "eventTitle": "Big Weekender - Day 1",
-      "rulesFormat": "WTC",
-      "rulesFormatLink": "https://worldteamchampionship.com/wtc-rules/",
+      "eventTitle": "11th Edition RTT",
+      "rulesFormat": "Games Workshop",
+      "rulesFormatLink": "https://assets.warhammer-community.com/eng_12-06_warhammer40000_event_companion-s3bfb5f9s1-ivswuij3fo.pdf",
       "numberOfRounds": "3",
       "image": "attachment://reaperLogo.jpg"
     }
   },
   {
-    "rounds": [
+    "dispositions": [
       {
-        "title": "Day 1 - Round 1",
-        "round": "One",
-        "missionDescription": "Supply Drop",
-        "image": "https://i.postimg.cc/MZmkrJYw/Supply_Drop.jpg",
-        "fields": {
-          "Deployment Map": "Tipping Point"
+        "title": "Disruption",
+        "image": "holding text",
+        "oppositionPaired": {
+          "Disruption": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Priority Assets": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Purge The Foe": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Take And Hold": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Reconnaissance": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ]
         }
       },
       {
-        "title": "Day 1 - Round 2",
-        "round": "Two",
-        "missionDescription": "Scorched Earth",
-        "image": "https://i.postimg.cc/FFVtnXxm/Scorched_Earth.jpg",
-        "fields": {
-          "Deployment Map": "Crucible of Battle"
+        "title": "Priority Assets",
+        "image": "holding text",
+        "oppositionPaired": {
+          "Disruption": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Priority Assets": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Purge The Foe": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Take and Hold": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Reconnaissance": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ]
         }
       },
       {
-        "title": "Day 1 - Round 3",
-        "round": "Three",
-        "missionDescription": "Take And Hold",
-        "image": "https://i.postimg.cc/MZmkrJYq/Take_And_Hold.jpg",
-        "fields": {
-          "Deployment Map": "Search And Destroy"
+        "title": "Purge The Foe",
+        "image": "holding text",
+        "oppositionPaired": {
+          "Disruption": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Priority Assets": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Purge The Foe": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Take and Hold": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Reconnaissance": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ]
+        }
+      },
+      {
+        "title": "Take And Hold",
+        "image": "holding text",
+        "oppositionPaired": {
+          "Disruption": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Priority Assets": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Purge The Foe": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Take and Hold": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Reconnaissance": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ]
+        }
+      },
+      {
+        "title": "Reconnaissance",
+        "image": "holding text",
+        "oppositionPaired": {
+          "Disruption": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Priority Assets": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Purge The Foe": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Take and Hold": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ],
+          "Reconnaissance": [
+            "Map A",
+            "Map B",
+            "Map C"
+          ]
         }
       }
     ]
