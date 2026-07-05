@@ -11,157 +11,162 @@
   {
     "dispositions": [
       {
-        "title": "Disruption",
+        "title": "❌ Disruption",
         "image": "holding text",
+        "color": "Blue",
         "oppositionPaired": {
           "Disruption": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Priority Assets": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PriorityAssets": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Purge The Foe": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PurgeTheFoe": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Take And Hold": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "TakeAndHold": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
           "Reconnaissance": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ]
         }
       },
       {
-        "title": "Priority Assets",
+        "title": "🎯 Priority Assets",
         "image": "holding text",
+        "color": "Yellow",
         "oppositionPaired": {
           "Disruption": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Priority Assets": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PriorityAssets": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Purge The Foe": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PurgeTheFoe": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Take and Hold": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "TakeAndHold": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
           "Reconnaissance": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ]
         }
       },
       {
-        "title": "Purge The Foe",
+        "title": "🗡️ Purge The Foe",
         "image": "holding text",
+        "color": "Red",
         "oppositionPaired": {
           "Disruption": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Priority Assets": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PriorityAssets": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Purge The Foe": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PurgeTheFoe": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Take and Hold": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "TakeAndHold": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
           "Reconnaissance": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ]
         }
       },
       {
-        "title": "Take And Hold",
+        "title": "💀 Take And Hold",
         "image": "holding text",
+        "color": "Green",
         "oppositionPaired": {
           "Disruption": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Priority Assets": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PriorityAssets": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Purge The Foe": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PurgeTheFoe": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Take and Hold": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "TakeAndHold": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
           "Reconnaissance": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ]
         }
       },
       {
-        "title": "Reconnaissance",
+        "title": "👁️ Reconnaissance",
         "image": "holding text",
+        "color": "Purple",
         "oppositionPaired": {
           "Disruption": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Priority Assets": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PriorityAssets": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Purge The Foe": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "PurgeTheFoe": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
-          "Take and Hold": [
-            "Map A",
-            "Map B",
-            "Map C"
+          "TakeAndHold": [
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ],
           "Reconnaissance": [
-            "Map A",
-            "Map B",
-            "Map C"
+            "Layout A",
+            "Layout B",
+            "Layout C"
           ]
         }
       }
