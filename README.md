@@ -1,6 +1,6 @@
 # discordBotv1
 
-# tpgBot
+# reaperBot
 
 # To run enter 'node index.js'
 
